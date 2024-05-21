@@ -18,7 +18,8 @@ jobs:
           run-id:  ${{ github.event.workflow_run.id }}
   
   release-artifacts:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    needs:
+      - download-artifacts
     runs-on: ubuntu-latest
     steps:
       - name: Upload to somewhere
