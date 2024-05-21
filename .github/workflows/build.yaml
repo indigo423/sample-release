@@ -13,6 +13,6 @@ jobs:
         echo "this is my artifact" > artifact.txt
     - name: Persist build artifact
       uses: actions/upload-artifact@v4
-        with:
-          name: artifact
-          path: artifact.txt
+      with:
+        name: artifact
+        path: artifact.txt
