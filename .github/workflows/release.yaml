@@ -1,0 +1,15 @@
+---
+name: release
+run-name: Publish the release to somewhere
+on:
+  workflow_run:
+    workflows: ["build"]
+    types:
+      - completed
+jobs:
+  release-artifacts:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload to somewhere
+        run: echo "We do the upload here"
