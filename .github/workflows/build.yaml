@@ -1,0 +1,18 @@
+---
+name: build
+run-name: Build my project
+on:
+  push:
+  pull_request:
+
+jobs:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Create artifact
+      run: |
+        echo "this is my artifact" > artifact.txt
+    - name: Persist build artifact
+      uses: actions/upload-artifact@v4
+        with:
+          name: artifact
+          path: artifact.txt
